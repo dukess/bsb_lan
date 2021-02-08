@@ -341,7 +341,7 @@ typedef enum {
   DT_VALS,    // plain value
   DT_ENUM,    // value (8/16 Bit) followed by space followed by text
   DT_BITS,    // bit value followed by bitmask followed by text
-  DT_WDAY,    // weekday. Not used but must leaved here. Or replaced with new data type in future
+  DT_TMPR,    // Time intervals (hour:minute-hour:minute, hour:minute-hour:minute, hour:minute-hour:minute)
   DT_HHMM,    // hour:minute
   DT_DTTM,    // date and time
   DT_DDMM,    // day and month
@@ -352,7 +352,7 @@ typedef enum {
 const char STR_VALS[] PROGMEM = "VALS";
 const char STR_ENUM[] PROGMEM = "ENUM";
 const char STR_BITS[] PROGMEM = "BITS";
-const char STR_WDAY[] PROGMEM = "WDAY";
+const char STR_TMPR[] PROGMEM = "TMPR";
 const char STR_HHMM[] PROGMEM = "HHMM";
 const char STR_DTTM[] PROGMEM = "DTTM";
 const char STR_DDMM[] PROGMEM = "DDMM";
@@ -521,7 +521,7 @@ PROGMEM_LATE const dt_types dt_types_text[]={
   {DT_VALS, STR_VALS},
   {DT_ENUM, STR_ENUM},
   {DT_BITS, STR_BITS},
-  {DT_WDAY, STR_WDAY},
+  {DT_TMPR, STR_TMPR},
   {DT_HHMM, STR_HHMM},
   {DT_DTTM, STR_DTTM},
   {DT_DDMM, STR_DDMM},
@@ -615,7 +615,7 @@ PROGMEM_LATE const units optbl[]={
 {VT_DATETIME,       1.0,    1, 8+32, DT_DTTM, 0,  U_NONE, sizeof(U_NONE), STR_DATETIME},
 {VT_SUMMERPERIOD,   1.0,    1, 8+32, DT_DDMM, 0,  U_NONE, sizeof(U_NONE), STR_SUMMERPERIOD},
 {VT_VACATIONPROG,   1.0,    1, 8+32, DT_DDMM, 0,  U_NONE, sizeof(U_NONE), STR_VACATIONPROG},
-{VT_TIMEPROG,       1.0,    8, 11+32, DT_DTTM, 0,  U_NONE, sizeof(U_NONE), STR_TIMEPROG},
+{VT_TIMEPROG,       1.0,    8, 11+32, DT_TMPR, 0,  U_NONE, sizeof(U_NONE), STR_TIMEPROG},
 {VT_STRING,         1.0,    8, 22+64, DT_STRN, 0,  U_NONE, sizeof(U_NONE), STR_STRING},
 {VT_CUSTOM_ENUM,    1.0,    8, 22+32+64, DT_ENUM, 0,  U_NONE, sizeof(U_NONE), STR_CUSTOM_ENUM},
 {VT_CUSTOM_BYTE,    1.0,    0, 22+32+64, DT_VALS, 0,  U_NONE, sizeof(U_NONE), STR_CUSTOM_BYTE},

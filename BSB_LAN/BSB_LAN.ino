@@ -3304,30 +3304,6 @@ void printTelegram(byte* msg, int query_line) {
             case VT_TIMEPROG:
               printTimeProg(msg,data_len);
               break;
-/*
-//VT_WEEKDAY is ENUM
-// ENUM_WEEKDAY used in one program 1642 as enum
-//VT_WEEKDAY defined as DT_WDAY but DT_WDAY nowhere used
-            case VT_WEEKDAY: // enum
-              if (data_len == 2) {
-                if (msg[bus->getPl_start()]==0) {
-                  int len=sizeof(ENUM_WEEKDAY);
-#if defined(__AVR__)
-                  printENUM(pgm_get_far_address(ENUM_WEEKDAY),len,msg[bus->getPl_start()+1],0);
-#else
-                  printENUM(ENUM_WEEKDAY,len,msg[bus->getPl_start()+1],0);
-#endif
-                } else {
-                  undefinedValueToBuffer(decodedTelegram.value);
-                  printToDebug(decodedTelegram.value);
-                }
-              } else {
-                printToDebug(PSTR(" VT_WEEKDAY !=2: "));
-                prepareToPrintHumanReadableTelegram(msg, data_len, bus->getPl_start());
-                decodedTelegram.error = 256;
-                }
-              break;
-*/
             case VT_WEEKDAY:
             case VT_ENUM: // enum
               if (data_len == 2 || data_len == 3 || bus->getBusType() == BUS_PPS) {
